@@ -22,36 +22,3 @@ public class Student {
 	private int age; //나이
 	
 }
-
-//단일값출력
-//productName: <th:block th:text="${projectName}">상품명</th:block>
-
-//복수값출력
-//<ul>
-//<li th:text="${list}">목록</li>
-//<li th:text="${list[0]}">0번인덱스</li>
-//</ul>
-
-//th:each사용
-//<ul>
-//<th:block th:each="fruit:${fruitList}">
-//	<li th:text="${fruit}"></li>
-//</th:block>
-//</ul>
-
-//DTO객체출력
-//<ul>
-//<li th:text="${std}">객체</li>
-//</ul>
-
-//th:object사용
-//<ul th:object="${std}>
-// <li th:text=*{studentNo}>학번</li>
-//</ul>
-
-//DTO가담긴list출력
-//<tbody>
-//<tr>
-//
-//</tr>
-//</tbody>

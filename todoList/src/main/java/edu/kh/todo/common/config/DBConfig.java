@@ -65,8 +65,8 @@ public class DBConfig {
 
 	///////////////// HikariCP 설정 ////////////////////
 
-	@Bean
-	@ConfigurationProperties(prefix = "spring.datasource.hikari")
+	@Bean //bean들아 너네가 관리해줘!!!
+	@ConfigurationProperties(prefix = "spring.datasource.hikari") //값 다 읽어옴
 	public HikariConfig hikariConfig() {
 
 		// -> config.properties 파일에서 읽어온
@@ -146,7 +146,7 @@ public class DBConfig {
 	// Connection + DBCP + Mybatis + 트랜잭션 처리
 	@Bean
 	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sessionFactory) {
-		return new SqlSessionTemplate(sessionFactory);
+		return new SqlSessionTemplate(sessionFactory); //틀을 다 만들어냄
 	}
 
 	// DataSourceTransactionManager : 트랜잭션 매니저

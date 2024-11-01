@@ -22,7 +22,7 @@ import edu.kh.todo.model.dto.Todo;
  * ->MyBatis가 DAO객체로 Mapper 인터페이스를 관리하기 때문
  * */
 
-@Mapper
+@Mapper //Mybatis가 제공해주는 어노테이션
 public interface TodoMapper {
 
 	/* Mapper의 메서드명 == mapper.xml 파일 내 태그의 id
@@ -31,6 +31,8 @@ public interface TodoMapper {
 	 * 
 	 * */
 	
+	
+
 	/**(TEST) todoNo가 1인 할일 제목 조회
 	 * @return title
 	 * */	
@@ -51,4 +53,29 @@ public interface TodoMapper {
 	 * @return result
 	 * */
 	int addTodo(Todo todo);
+
+	/**할일 상세조회
+	 * @param todoNo
+	 * @return
+	 * */
+	Todo todoDetail(int todoNo);
+	
+	/**완료여부
+	 * 
+	 * 
+	 * */
+	int changeComplete(Todo todo);
+	
+	/**수정
+	 * 
+	 * */
+	int update(int todoNo, String todoTitle, String todoContent);
+	
+	
+	/**삭제
+	 * 
+	 * */
+	int delete(Todo todo);
+
+	
 }

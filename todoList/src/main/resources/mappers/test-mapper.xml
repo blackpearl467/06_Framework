@@ -105,16 +105,25 @@
 
 	
    <!-- 할일 수정 -->
-   <update id="update" parameterType="Todo">
-   	UPDATE FROM TB_TODO
-   	WHERE TODO_NO=#{todoNo}
-   </update>
+   <update id="todoUpdate" parameterType="Todo">
+  		UPDATE TB_TODO SET
+  		TODO_TITLE = #{todoTitle},
+  		TODO_CONTENT = #{todoContent}
+  		WHERE TODO_NO = #{todoNo}
+ 	</update>
    
    
    <!-- 할일 삭제 -->
-   <delete id="delete" parameterType="Todo">
+   <delete id="tododelete" parameterType="Todo">
    	DELETE FROM TB_TODO
    	WHERE TODO_NO=#{todoNo}
    </delete>
+   
+   
+   <!-- 전체 할일 개수조회 -->
+   <select id="getTotalCount" resultType="_int">
+   	SELECT COUNT(*) FROM TB_TODO
+   </select>
+   
 </mapper>
 

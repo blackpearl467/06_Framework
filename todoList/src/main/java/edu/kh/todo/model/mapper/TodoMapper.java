@@ -33,6 +33,7 @@ public interface TodoMapper {
 	
 	
 
+	
 	/**(TEST) todoNo가 1인 할일 제목 조회
 	 * @return title
 	 * */	
@@ -61,21 +62,26 @@ public interface TodoMapper {
 	Todo todoDetail(int todoNo);
 	
 	/**완료여부
-	 * 
-	 * 
+	 * @param todo
+	 * @return result
 	 * */
 	int changeComplete(Todo todo);
 	
-	/**수정
-	 * 
-	 * */
-	int update(int todoNo, String todoTitle, String todoContent);
+	/** 할 일 수정
+	 * @param todo
+	 * @return result
+	 */
+	int todoUpdate(Todo todo);
 	
-	
-	/**삭제
-	 * 
-	 * */
-	int delete(Todo todo);
+	/** 할 일 삭제
+	 * @param todoNo
+	 * @return result
+	 */
+	int todoDelete(int todoNo);
 
-	
+	/**전체 할일 개수 조회
+	 * @return totalCount
+	 */
+	int getTotalCount();
+
 }

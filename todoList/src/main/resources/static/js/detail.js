@@ -26,14 +26,15 @@ completeBtn.addEventListener ("click", e => {
   //console.log(todoNo);
 });
 
-//수정 버튼
+// 수정 버튼 클릭 시
 const updateBtn = document.querySelector("#updateBtn");
 
-updateBtn.addEventListener ("click", e => {
+updateBtn.addEventListener("click", e => {
 
-  const todoNo=e.target.dataset.todoNo;
+  // data-todo-no="${todo.todoNo}" 얻어오기
+  const todoNo = e.target.dataset.todoNo;
 
-  location.href=`/todo/update?todoNo` + todoNo;
+  location.href = `/todo/update?todoNo=${todoNo}`;
 });
 
 //삭제 버튼

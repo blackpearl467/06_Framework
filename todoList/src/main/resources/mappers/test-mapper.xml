@@ -114,7 +114,7 @@
    
    
    <!-- 할일 삭제 -->
-   <delete id="tododelete" parameterType="Todo">
+   <delete id="todoDelete" parameterType="Todo">
    	DELETE FROM TB_TODO
    	WHERE TODO_NO=#{todoNo}
    </delete>

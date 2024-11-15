@@ -46,8 +46,8 @@
               <td th:text="*{fileNo}">파일 번호</td>
 
               <td>
-                <!-- href 경로 : /myPage/file/20240417114905_00001.png -->
-                <a th:href="|*{filePath}*{fileRename}|"
+                <!-- href 경로 : /myPage/file/  20240417114905_00001.png 문자열 이어쓰기 됨-->
+                <a th:href="|*{filePath}*{fileRename}|" 
                   th:download="*{fileOriginalName}"
                   th:text="*{fileOriginalName}" >파일명</a>
               </td>

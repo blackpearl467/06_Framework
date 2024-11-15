@@ -1,10 +1,14 @@
 package edu.kh.project.main.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -187,4 +191,33 @@ public class MemberController {
 		//실패->redirect:signup(상대경로)
 				//현재 주소 /member/signup(회원가입페이지로 GET 방식 요청)
 	}
+	
+	
+	
+	// 비동기 테스트
+		// 회원 목록 조회(비동기)
+		@ResponseBody //왜..?
+		@GetMapping("selectMemberList")
+		public List<Member> selectMemberList() {
+			
+			// (java)List
+			// (Spring) HttpMessageConverter가 JSON Array(문자열)로 변경
+			// -> (JS) response => response.json() -> JS 객체 배열
+			return service.selectMemberList();
+		}
+		
+		// 특정회원 비밀번호 초기화(pass01!)(비동기)
+		@ResponseBody
+		@PutMapping("resetPw") //왜..put?
+		public int resetPw(@RequestBody int inputNo) {
+			return service.resetPw(inputNo);
+		}
+		
+		// 회원 탈퇴 복구(비동기)
+		@ResponseBody
+		@PutMapping("restoreMember") //왜..put?
+		public int restoreMember(@RequestBody int inputNo) {
+			return service.restoreMember(inputNo);
+		}
+
 }
